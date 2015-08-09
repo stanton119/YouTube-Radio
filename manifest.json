@@ -1,43 +1,33 @@
 {
-  "manifest_version": 2,
+	"manifest_version": 2,
 
-  "name": "Radio Mode for YouTube™",
-  "description": "Replace background YouTube™ videos with more efficient audio.",
-  "version": "1.2",
-  "author": "Richard Stanton",
+    "name": "Radio Mode for YouTube™",
+    "description": "Replace background YouTube™ videos with more efficient audio, for less distractions.",
+    "short_name": "YouTube™ Radio",
+    "version": "2.0",
+    "author": "Richard Stanton",
   
-  "minimum_chrome_version": "34",
+	"minimum_chrome_version": "34",
   
-	
-  "icons": {
-    "128": "images/icon.png"
-  },
-
-  "content_scripts": [
-          {
-            "matches": [
-    			"http://www.youtube.com/*",
-    			"https://www.youtube.com/*"
-    		],
-          	"css": ["insert.css"]
-          }
-        ],
 
 	"background": {
-	        "scripts": ["background.js"],
-	        "persistent": false
-	    },
+		"persistent": false,
+		"scripts": [ "js/background.js" ]
+	},
 	
-  "permissions": [
-	"http://www.youtube.com/*",
-	"https://www.youtube.com/*",
-    "tabs"
-  ],
-  
-  "web_accessible_resources": [
-	  "images/on.png",
-	  "images/hover.png",
-	  "images/grey.png"
-  ]
-
+	"permissions": [
+		"http://*.youtube.com/",
+		"https://*.youtube.com/",
+		"tabs",
+		"storage"
+	],
+	
+	"page_action": {
+		"default_icon": "img/on.png",
+		"default_title": "YouTube™ Radio"
+	},
+	
+	"icons": {
+		"128": "img/icon.png"
+	}
 }
