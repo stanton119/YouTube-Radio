@@ -4,7 +4,7 @@
     "name": "Radio Mode for YouTube™",
     "description": "Replace background YouTube™ videos with more efficient audio, for less distractions.",
     "short_name": "YouTube™ Radio",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "author": "Richard Stanton",
   
 	"minimum_chrome_version": "34",

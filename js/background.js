@@ -72,9 +72,10 @@ chrome.runtime.onInstalled.addListener(function(details){
     }else if(details.reason == "update"){
         var thisVersion = chrome.runtime.getManifest().version;
         console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
-		// show if updating from 1.2, only for future versions >2.0.1
-		// if (details.previousVersion == "1.2") {
+		
+		// show if updating from 1.2
+		if (details.previousVersion == "1.2") {
 			chrome.tabs.create({url: "http://www.richard-stanton.com/chrome-plugins/youtube-radio/radioinstall/"});
-		// }
+		}
     }
 });
