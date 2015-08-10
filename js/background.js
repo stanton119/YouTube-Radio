@@ -60,3 +60,21 @@ function showIcon(tab_id) {
 	icon_path = radioEnabled ? "img/on.png" : "img/off.png";
 	chrome.pageAction.setIcon({tabId: tab_id, path:icon_path});
 }
+
+// Check whether new version is installed
+chrome.runtime.onInstalled.addListener(function(details){
+	// direct to welcome page
+
+    if(details.reason == "install"){
+        console.log("First time install, show website");
+		// new tab with install page
+		chrome.tabs.create({url: "http://www.richard-stanton.com/chrome-plugins/youtube-radio/radioinstall/"});
+    }else if(details.reason == "update"){
+        var thisVersion = chrome.runtime.getManifest().version;
+        console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
+		// show if updating from 1.2, only for future versions >2.0.1
+		// if (details.previousVersion == "1.2") {
+			chrome.tabs.create({url: "http://www.richard-stanton.com/chrome-plugins/youtube-radio/radioinstall/"});
+		// }
+    }
+});
